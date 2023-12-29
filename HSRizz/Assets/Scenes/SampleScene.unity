@@ -253,11 +253,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
---- !u!1 &201348619 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3960265555454329764, guid: a61c80e771c22ea4fa26cb15dffd1105, type: 3}
-  m_PrefabInstance: {fileID: 7412078225647782189}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &367851776
 GameObject:
   m_ObjectHideFlags: 0
@@ -1304,9 +1299,9 @@ RectTransform:
   - {fileID: 558303436}
   m_Father: {fileID: 1090278952}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -209.2, y: -242.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 294, y: 63}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1029844920
@@ -2047,9 +2042,9 @@ RectTransform:
   - {fileID: 514470739}
   m_Father: {fileID: 1090278952}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -322.4, y: -242.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 180.80002, y: 63}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1806442777
@@ -2124,9 +2119,9 @@ RectTransform:
   - {fileID: 1730809996}
   m_Father: {fileID: 1090278952}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -430.5, y: -242.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 64, y: 63}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1877145753
@@ -2307,14 +2302,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 3570593552368626238, guid: a61c80e771c22ea4fa26cb15dffd1105, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 8046272396203559742, guid: a61c80e771c22ea4fa26cb15dffd1105, type: 3}
-      propertyPath: center
-      value: 
-      objectReference: {fileID: 201348619}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
