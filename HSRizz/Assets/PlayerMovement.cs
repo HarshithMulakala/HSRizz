@@ -10,14 +10,6 @@ public class PlayerMovement : MonoBehaviour
     public GameObject center;
     public Animator animator;
     private SpriteRenderer sr;
-    public Sprite DR;
-    public Sprite D;
-    public Sprite DL;
-    public Sprite L;
-    public Sprite UL;
-    public Sprite U;
-    public Sprite UR;
-    public Sprite R;
     private Vector2 playerDirection;
     // Start is called before the first frame update
     void Start()
@@ -33,38 +25,15 @@ public class PlayerMovement : MonoBehaviour
         float directionY = Input.GetAxisRaw("Vertical");
 
         playerDirection = new Vector2(directionX, directionY).normalized;
+
         animator.SetFloat("X", directionX);
         animator.SetFloat("Y", directionY);
         animator.SetFloat("Speed", playerDirection.sqrMagnitude);
-/**
-        if(playerDirection.y == 1){
-            sr.sprite = DR;
+
+        if(directionX != 0 || directionY != 0){
+            animator.SetFloat("LastX", directionX);
+            animator.SetFloat("LastY", directionY);
         }
-        else if(playerDirection.y == -1){
-            sr.sprite = U;
-        }
-        else if(playerDirection.x == 1){
-            sr.sprite = R;
-        }
-        else if(playerDirection.x == -1){
-            sr.sprite = L;
-        }
-        else if(playerDirection.x > 0 && playerDirection.y > 0){
-            sr.sprite = UR;
-        }
-        else if(playerDirection.x < 0 && playerDirection.y > 0){
-            sr.sprite = UL;
-        }
-        else if(playerDirection.x < 0 && playerDirection.y < 0){
-            sr.sprite = DL;
-        }
-        else{
-            sr.sprite = DR;
-        }
-**/
-        
-        //Debug.Log("y " + playerDirection.y);
-        //Debug.Log("m " + playerDirection.magnitude);
 
     }
 
