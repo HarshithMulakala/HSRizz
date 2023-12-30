@@ -19,7 +19,7 @@ public class Bullet : MonoBehaviour
     // Start is called before the first frame update
     public void playAnimation(){
         animator.SetBool("hit", true);
-        Debug.Log("hit");
+        GetComponent<Rigidbody2D>().velocity = Vector3.zero;
     }
     void Start()
     {
@@ -39,13 +39,12 @@ public class Bullet : MonoBehaviour
             animator.SetBool("H", false);
             animator.SetBool("F", false);
         }
-        GetComponent<SpriteRenderer>().sprite = laugh;
-        //type == bulletType.Flattery ? arrow : type == bulletType.Humor ? laugh : book;
     }
 
     // Update is called once per frame
     void Update()
     {
+        
     }
 
     void OnBecameInvisible() {
