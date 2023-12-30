@@ -9,6 +9,8 @@ public class PlayerCombat : MonoBehaviour
 
     public GameObject shop;
 
+    public GameObject settings;
+
     public AudioSource audioSource;
     public Transform bulletSpawnPoint;
     public float bulletSpeed = 10;
@@ -32,7 +34,7 @@ public class PlayerCombat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(shop.activeSelf){
+        if(shop.activeSelf || settings.activeSelf){
             return;
         }
         if(Input.GetKeyDown(KeyCode.Q)){

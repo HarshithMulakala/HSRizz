@@ -13,6 +13,10 @@ public class UI_Select : MonoBehaviour
 
     void Start()
     {
+        if(options.Length > 2){
+            active_index = PlayerPrefs.GetInt("volume");
+            active_item.text = options[PlayerPrefs.GetInt("volume")];
+        }
         left_button.onClick.AddListener(delegate { change_selected_option(-1); });
         right_button.onClick.AddListener(delegate { change_selected_option(1); });
     }
@@ -27,6 +31,12 @@ public class UI_Select : MonoBehaviour
 
         active_item.text = options[active_index];
 
+        if(options.Length > 2){
+            PlayerPrefs.SetInt("volume", active_index);
+        }
+        else{
+            Screen.fullScreen = !Screen.fullScreen;
+        }
     }
 
 }
