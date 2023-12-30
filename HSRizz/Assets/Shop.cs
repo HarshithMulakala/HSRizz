@@ -9,7 +9,10 @@ public class Shop : MonoBehaviour
     [System.Serializable] class ShopItem{
         public Sprite Image;
         public int Price;
-        public bool IsPurchased = false;
+
+        public int increaseAmt = 10;
+
+        public string details;
     }
 
     [SerializeField] List<ShopItem> ShopItemsList;
@@ -26,8 +29,8 @@ public class Shop : MonoBehaviour
             g = Instantiate(ItemTemplate, ShopScrollView);
             g.transform.GetChild(2).GetComponent<Image>().sprite = ShopItemsList[i].Image;
             g.transform.GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>().text = "" + ShopItemsList[i].Price;
+            g.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = ShopItemsList[i].details;
             buyBtn = g.transform.GetChild(0).GetComponent<Button>();
-            buyBtn.interactable = !ShopItemsList[i].IsPurchased;
             buyBtn.AddEventListener(i, OnShopItemBtnClicked);
         }
         Destroy(ItemTemplate);
@@ -37,12 +40,14 @@ public class Shop : MonoBehaviour
         int amt = ShopItemsList[itemIndex].Price;
         if(RizzCoins.returnRizz() >= amt){
             RizzCoins.increaseRizz(-amt);
-            ShopItemsList[itemIndex].IsPurchased = true;
             buyBtn = ShopScrollView.GetChild(itemIndex).GetChild(0).GetComponent<Button>();
-            buyBtn.interactable = false;
-            buyBtn.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Purchased";
-        }
-        
+            if(itemIndex == 0){
+                PlayerPrefs.SetInt("damage", PlayerPrefs.GetInt("damage") + ShopItemsList[itemIndex].increaseAmt);
+            }
+            if(itemIndex == 1){
+                PlayerPrefs.SetFloat("maxHealth", PlayerPrefs.GetFloat("maxHealth") + ShopItemsList[itemIndex].increaseAmt);
+            }
+        }   
     }
 
     // Update is called once per frame

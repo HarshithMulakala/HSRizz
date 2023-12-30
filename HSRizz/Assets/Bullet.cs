@@ -13,7 +13,7 @@ public class Bullet : MonoBehaviour
         Intelligence
     }
 
-    public int damage = 10;
+    public int damage;
     public Animator animator;
     public bulletType type = bulletType.Flattery; 
     // Start is called before the first frame update
@@ -23,6 +23,7 @@ public class Bullet : MonoBehaviour
     }
     void Start()
     {
+        damage = PlayerPrefs.GetInt("damage");
         animator = GetComponent<Animator>();
         if(type == bulletType.Flattery){
             animator.SetBool("F", true);

@@ -11,6 +11,7 @@ public class RizzCoins : MonoBehaviour
     private TextMeshProUGUI mText;
     // Start is called before the first frame update
     public static void increaseRizz(int add){
+        PlayerPrefs.SetInt("RizzCoins", rizzCoins + add);
         rizzCoins += add;
     }
 
@@ -20,6 +21,13 @@ public class RizzCoins : MonoBehaviour
     
     void Start()
     {
+        if(PlayerPrefs.HasKey("RizzCoins")){
+            rizzCoins = PlayerPrefs.GetInt("RizzCoins");
+        }
+        else{
+            PlayerPrefs.SetInt("RizzCoins", 0);
+            rizzCoins = 0;
+        }
         mText = coinsObject.GetComponent<TextMeshProUGUI>();
     }
 

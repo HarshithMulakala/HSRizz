@@ -384,10 +384,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 2932422916727110427, guid: 88e23557ac2b93740a8a633116a1dad6, type: 3}
+  shop: {fileID: 0}
   audioSource: {fileID: 381248449062193231}
   bulletSpawnPoint: {fileID: 5829910815527016729}
   bulletSpeed: 25
-  animator: {fileID: 0}
+  animator: {fileID: 18670699471769095}
   intervalForSpam: 0.5
 --- !u!114 &7249378282973748423
 MonoBehaviour:
@@ -402,7 +403,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  maxHealth: 100
   panel: {fileID: 0}
+  healthBar: {fileID: 0}
+  animator: {fileID: 18670699471769095}
 --- !u!114 &570130878597118958
 MonoBehaviour:
   m_ObjectHideFlags: 0

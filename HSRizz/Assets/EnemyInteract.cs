@@ -5,13 +5,18 @@ using UnityEngine;
 public class EnemyInteract : MonoBehaviour
 {
     public AudioSource audioSource;
+
+    private EnemySpawning enemySpawner;
     public float health = 20;
     public float damage = 10;
     public Bullet.bulletType type = Bullet.bulletType.Flattery;
     private bool isDead = false;
+
+    public int rizzAmt = 1;
     // Start is called before the first frame update
     void Start()
     {
+        enemySpawner = GameObject.Find("GameManager").GetComponent<EnemySpawning>();
     }
 
     // Update is called once per frame
@@ -19,8 +24,9 @@ public class EnemyInteract : MonoBehaviour
     {
         if(health <= 0 && !isDead){
             audioSource.Play();
+            enemySpawner.dead++;
             Destroy(gameObject, .1f);
-            RizzCoins.increaseRizz(1);
+            RizzCoins.increaseRizz(rizzAmt);
             isDead = true;
         }
     }

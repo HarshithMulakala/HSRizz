@@ -5,13 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class PlayerInteract : MonoBehaviour
 {
-    public float health = 100;
-    public float maxHealth = 100;
+    public float health;
+    public float maxHealth;
 
     private Dictionary<Collision2D, float?> collisions = new Dictionary<Collision2D, float?>();
-
-    private bool shopActive = false; 
-    public GameObject panel;
 
     public HealthBar healthBar;
 
@@ -20,7 +17,11 @@ public class PlayerInteract : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if(!PlayerPrefs.HasKey("maxHealth")){
+            PlayerPrefs.SetFloat("maxHealth", 100);
+        }
+        maxHealth = PlayerPrefs.GetFloat("maxHealth");
+        health = maxHealth;
     }
 
     // Update is called once per frame
@@ -29,14 +30,6 @@ public class PlayerInteract : MonoBehaviour
         if(health <= 0){
             animator.SetBool("Death", true);
             StartCoroutine("SwitchScene");
-        }
-        if(!shopActive && Input.GetKeyDown(KeyCode.Escape)){
-            shopActive = true;
-            panel.SetActive(true);   
-        }
-        else if(shopActive && Input.GetKeyDown(KeyCode.Escape)){
-            shopActive = false;
-            panel.SetActive(false);
         }
     }
 
@@ -65,10 +58,6 @@ public class PlayerInteract : MonoBehaviour
         if(collisions.TryGetValue(collision, out float? value) && collision.gameObject.tag == "Enemy"){
             collisions.Remove(collision);
         }
-    }
-
-    public void SetMaxHealth(float max){
-        maxHealth = max;
     }
 
     IEnumerator SwitchScene()

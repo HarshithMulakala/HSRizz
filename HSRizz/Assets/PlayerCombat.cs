@@ -1,16 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerCombat : MonoBehaviour
 {
-
-
     public GameObject bulletPrefab;
+
+    public GameObject shop;
 
     public AudioSource audioSource;
     public Transform bulletSpawnPoint;
     public float bulletSpeed = 10;
+
+    public int damage;
 
     public Animator animator;
 
@@ -18,16 +21,20 @@ public class PlayerCombat : MonoBehaviour
 
     public float intervalForSpam = 0.5f; // Time interval to consider for spamming
     private int clickCount = 0;
-
     // Start is called before the first frame update
     void Start()
     {
+        if(!PlayerPrefs.HasKey("damage")){PlayerPrefs.SetInt("damage", 10);}
+        damage = PlayerPrefs.GetInt("damage");
         animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(shop.activeSelf){
+            return;
+        }
         if(Input.GetKeyDown(KeyCode.Q)){
             currentBullet = Bullet.bulletType.Flattery;
         }
