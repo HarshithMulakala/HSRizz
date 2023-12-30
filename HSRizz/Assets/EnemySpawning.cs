@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemySpawning : MonoBehaviour
 {
     Camera cam;
-
+    public AudioSource audioSource;
     public GameObject FlatteryEnemy;
     public GameObject HumorEnemy;
     public GameObject IntelligenceEnemy;
@@ -19,7 +19,9 @@ public class EnemySpawning : MonoBehaviour
     public float time = 0;
     void Start()
     {
+        audioSource.Play();
         cam = Camera.main;
+
     }
 
     // Update is called once per frame

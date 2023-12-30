@@ -8,6 +8,7 @@ public class PlayerCombat : MonoBehaviour
 
     public GameObject bulletPrefab;
 
+    public AudioSource audioSource;
     public Transform bulletSpawnPoint;
     public float bulletSpeed = 10;
 
@@ -38,6 +39,7 @@ public class PlayerCombat : MonoBehaviour
         }
         if (Input.GetButtonDown("Fire1"))
         {
+            audioSource.Play();
             var bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
             bullet.GetComponent<Bullet>().type = currentBullet;
             bullet.GetComponent<Rigidbody2D>().velocity = bulletSpawnPoint.up * bulletSpeed;
