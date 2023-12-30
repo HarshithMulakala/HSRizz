@@ -9,7 +9,7 @@ public class EnemySpawning : MonoBehaviour
     public GameObject FlatteryEnemy;
     public GameObject HumorEnemy;
     public GameObject IntelligenceEnemy;
-    public int total = 0;
+    public int total;
     public int frequency = 5;
 
     public float timeInterval = 5;
@@ -32,8 +32,7 @@ public class EnemySpawning : MonoBehaviour
 
     void FixedUpdate(){
         time += Time.deltaTime;
-        if(time > timeInterval * intervalsDone && total < frequency){
-            total++;
+        if(time > timeInterval * intervalsDone){
             intervalsDone++;
             Vector2 enemySpawn = new Vector2(Random.Range(0,76) - 47,Random.Range(0,60) - 29);
             transform.position = enemySpawn;
