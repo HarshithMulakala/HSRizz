@@ -29879,7 +29879,7 @@ GameObject:
   - component: {fileID: 1541704374}
   - component: {fileID: 1541704373}
   - component: {fileID: 1541704372}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HiddenCollider2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30583,7 +30583,7 @@ GameObject:
   - component: {fileID: 1806779156}
   - component: {fileID: 1806779155}
   - component: {fileID: 1806779154}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HiddenCollider4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
