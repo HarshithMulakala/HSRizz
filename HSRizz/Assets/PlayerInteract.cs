@@ -63,7 +63,7 @@ public class PlayerInteract : MonoBehaviour
     IEnumerator SwitchScene()
     {
         yield return new WaitForSeconds(.5f);
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(6);
         Destroy(gameObject);
     }
 }

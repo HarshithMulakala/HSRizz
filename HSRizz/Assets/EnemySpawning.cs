@@ -56,7 +56,7 @@ public class EnemySpawning : MonoBehaviour
         if(dead >= frequency && !allDead){
             allDead = true;
             if(SceneManager.GetActiveScene().name == "Wave 3"){
-                Debug.Log("You Win!");
+                SceneManager.LoadScene(5);
             }
             else{
                 waveCleared.SetActive(true);
@@ -70,7 +70,7 @@ public class EnemySpawning : MonoBehaviour
     void FixedUpdate(){
         if(!(SceneManager.GetActiveScene().buildIndex == 0)){
                 time += Time.deltaTime;
-                if(time > timeInterval * intervalsDone && total < frequency){
+                if(time > timeInterval * intervalsDone){
                 var SR = SpawnSquare.GetComponent<SpriteRenderer>();
                 float minX = SR.bounds.min.x;
                 float maxX = SR.bounds.max.x;

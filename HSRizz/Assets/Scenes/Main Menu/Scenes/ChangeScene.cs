@@ -35,6 +35,11 @@ public class ChangeScene : MonoBehaviour
 
     public void moveToScene(int sceneID)
     {
+        if(sceneID == 2){
+            PlayerPrefs.SetFloat("maxHealth", 100);
+            PlayerPrefs.SetInt("damage", 10);
+            PlayerPrefs.SetInt("RizzCoins", 0);
+        }
         SceneManager.LoadScene(sceneID);
     }
 
