@@ -1110,7 +1110,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da2fe0a67d9f3d14b80bff9cc74c4d12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemy: {fileID: 497453737082725010, guid: d262c56982eabb24a9dce941178a20bb, type: 3}
+  FlatteryEnemy: {fileID: 8502410331687766296, guid: 76b2d4618b0355c42945d8695c6fc7b2, type: 3}
+  HumorEnemy: {fileID: 8402845638819785413, guid: ed4c86afdf531274aa1dbb7c0dd736c1, type: 3}
+  IntelligenceEnemy: {fileID: 7137937149443139948, guid: 8ee970e997fdcc0419a92e4154d793b0, type: 3}
+  total: 0
   frequency: 5
   timeInterval: 5
   time: 0

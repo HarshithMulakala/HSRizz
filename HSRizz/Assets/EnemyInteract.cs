@@ -10,7 +10,6 @@ public class EnemyInteract : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<SpriteRenderer>().color = type == Bullet.bulletType.Flattery ? Color.magenta : type == Bullet.bulletType.Humor ? Color.yellow : Color.blue;
     }
 
     // Update is called once per frame

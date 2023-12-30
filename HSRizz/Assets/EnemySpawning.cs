@@ -6,10 +6,11 @@ public class EnemySpawning : MonoBehaviour
 {
     Camera cam;
 
-    public GameObject Enemy;
-    public int frequency = 1;
-    
-    private int currentSpawned = 0;
+    public GameObject FlatteryEnemy;
+    public GameObject HumorEnemy;
+    public GameObject IntelligenceEnemy;
+    public int total;
+    public int frequency = 5;
 
     public float timeInterval = 5;
 
@@ -29,9 +30,7 @@ public class EnemySpawning : MonoBehaviour
 
     void FixedUpdate(){
         time += Time.deltaTime;
-        if((time > (timeInterval * intervalsDone)) && (currentSpawned < frequency))
-        {
-            currentSpawned++;
+        if(time > timeInterval * intervalsDone){
             intervalsDone++;
             Vector2 enemySpawn = new Vector2(Random.Range(0,76) - 47,Random.Range(0,60) - 29);
             transform.position = enemySpawn;
@@ -44,7 +43,8 @@ public class EnemySpawning : MonoBehaviour
                 insideCameraView = (viewportPosition.x >= 0 && viewportPosition.x <= 1 && viewportPosition.y >= 0 && viewportPosition.y <= 1);
             }
             int randType = Random.Range(0,3);
-            var enemy = Instantiate(Enemy, enemySpawn, transform.rotation);
+            var SpawningEnemy = (randType == 0 ? FlatteryEnemy : randType == 1 ? HumorEnemy : IntelligenceEnemy);
+            var enemy = Instantiate(SpawningEnemy, enemySpawn, transform.rotation);
             enemy.GetComponent<EnemyInteract>().type = (randType == 0 ? Bullet.bulletType.Flattery : randType == 1 ? Bullet.bulletType.Humor : Bullet.bulletType.Intelligence);
         }
     }
