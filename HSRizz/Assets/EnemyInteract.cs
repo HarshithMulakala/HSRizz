@@ -25,11 +25,13 @@ public class EnemyInteract : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other) {
         if(other.CompareTag("Bullet") && other.GetComponent<Bullet>().type == this.type){
             health -= other.gameObject.GetComponent<Bullet>().damage;
-            Destroy(other.gameObject);
+            other.gameObject.GetComponent<Bullet>().playAnimation();
+            //Destroy(other.gameObject);
         }
         else if(other.CompareTag("Bullet")){
             health -= other.gameObject.GetComponent<Bullet>().damage * .1f;
-            Destroy(other.gameObject);
+            other.gameObject.GetComponent<Bullet>().playAnimation();
+            //Destroy(other.gameObject);
         }
     }
 }

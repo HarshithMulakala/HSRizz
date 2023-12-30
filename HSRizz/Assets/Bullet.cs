@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public Sprite arrow;
+    public Sprite book;
+    public Sprite laugh;
     public enum bulletType {
         Flattery,
         Humor,
@@ -11,17 +14,38 @@ public class Bullet : MonoBehaviour
     }
 
     public int damage = 10;
+    public Animator animator;
     public bulletType type = bulletType.Flattery; 
     // Start is called before the first frame update
+    public void playAnimation(){
+        animator.SetBool("hit", true);
+        Debug.Log("hit");
+    }
     void Start()
     {
-        GetComponent<SpriteRenderer>().color = type == bulletType.Flattery ? Color.magenta : type == bulletType.Humor ? Color.yellow : Color.blue;
+        animator = GetComponent<Animator>();
+        if(type == bulletType.Flattery){
+            animator.SetBool("F", true);
+            animator.SetBool("I", false);
+            animator.SetBool("H", false);
+        }
+        else if(type == bulletType.Humor){
+           animator.SetBool("H", true);
+            animator.SetBool("F", false);
+             animator.SetBool("I", false);
+        }
+        else{
+            animator.SetBool("I", true);
+            animator.SetBool("H", false);
+            animator.SetBool("F", false);
+        }
+        GetComponent<SpriteRenderer>().sprite = laugh;
+        //type == bulletType.Flattery ? arrow : type == bulletType.Humor ? laugh : book;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     void OnBecameInvisible() {
