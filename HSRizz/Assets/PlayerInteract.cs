@@ -28,8 +28,7 @@ public class PlayerInteract : MonoBehaviour
     {
         if(health <= 0){
             animator.SetBool("Death", true);
-            Destroy(gameObject, .5f);
-            SceneManager.LoadScene(0);
+            StartCoroutine("SwitchScene");
         }
         if(!shopActive && Input.GetKeyDown(KeyCode.Escape)){
             shopActive = true;
@@ -70,5 +69,12 @@ public class PlayerInteract : MonoBehaviour
 
     public void SetMaxHealth(float max){
         maxHealth = max;
+    }
+
+    IEnumerator SwitchScene()
+    {
+        yield return new WaitForSeconds(.5f);
+        SceneManager.LoadScene(0);
+        Destroy(gameObject);
     }
 }

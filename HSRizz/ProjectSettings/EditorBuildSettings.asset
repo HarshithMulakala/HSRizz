@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu/Scenes/FirstMenu.unity
     guid: 7b732236519ba3640977e0ebbe1ca914
   - enabled: 1
+    path: Assets/Scenes/Wave1.unity
+    guid: 1b222519f7ecdc147a74e9decc297e9d
+  - enabled: 1
     path: Assets/Scenes/TestScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}
