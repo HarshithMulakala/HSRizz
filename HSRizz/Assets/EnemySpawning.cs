@@ -16,6 +16,10 @@ public class EnemySpawning : MonoBehaviour
     public int total = 0;
     public int frequency = 5;
 
+    public float EnemyHealth = 20;
+
+    public float EnemyDamage = 10;
+
     public int dead = 0;
 
     private bool allDead = false;
@@ -25,6 +29,8 @@ public class EnemySpawning : MonoBehaviour
     private int intervalsDone = 1;
 
     public float time = 0;
+
+    public int rizzy = 1;
 
     public GameObject SpawnSquare;
     void Start()
@@ -74,6 +80,9 @@ public class EnemySpawning : MonoBehaviour
             var SpawningEnemy = (randType == 0 ? FlatteryEnemy : randType == 1 ? HumorEnemy : IntelligenceEnemy);
             var enemy = Instantiate(SpawningEnemy, enemySpawn, transform.rotation);
             enemy.GetComponent<EnemyInteract>().type = (randType == 0 ? Bullet.bulletType.Flattery : randType == 1 ? Bullet.bulletType.Humor : Bullet.bulletType.Intelligence);
+            enemy.GetComponent<EnemyInteract>().health = EnemyHealth;
+            enemy.GetComponent<EnemyInteract>().rizzAmt = rizzy;
+            enemy.GetComponent<EnemyInteract>().damage = EnemyDamage;
         }
     }
 
