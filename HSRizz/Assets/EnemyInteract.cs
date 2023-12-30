@@ -16,7 +16,7 @@ public class EnemyInteract : MonoBehaviour
     void Update()
     {
         if(health <= 0){
-            Destroy(gameObject, .1f);
+            Destroy(gameObject);
             RizzCoins.increaseRizz(1);
         }
     }

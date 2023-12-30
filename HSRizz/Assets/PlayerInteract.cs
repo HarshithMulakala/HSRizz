@@ -8,6 +8,9 @@ public class PlayerInteract : MonoBehaviour
 
     private Dictionary<Collision2D, float?> collisions = new Dictionary<Collision2D, float?>();
 
+    private bool shopActive = false; 
+    public GameObject panel;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +20,14 @@ public class PlayerInteract : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(!shopActive && Input.GetKeyDown(KeyCode.Escape)){
+            shopActive = true;
+            panel.SetActive(true);   
+        }
+        else if(shopActive && Input.GetKeyDown(KeyCode.Escape)){
+            shopActive = false;
+            panel.SetActive(false);
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision) {    
